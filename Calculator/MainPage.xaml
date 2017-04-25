@@ -1,0 +1,144 @@
+﻿<Page
+    x:Class="Calculator.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Calculator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="auto" KeyDown="Page_KeyDown" Height="auto">
+
+    <Page.TopAppBar>
+        <CommandBar>
+            <!-- Todo add Appbar buttons -->
+            <AppBarButton Width="Auto">
+                <TextBlock Text="Exit" />
+            </AppBarButton>
+            <AppBarSeparator/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Label="Add"
+                              Click="add_button_Click"/>
+                <AppBarButton Label="Subtract"
+                              Click="sub_button_Click"/>
+                <AppBarButton Label="Multiply"
+                              Click="div_button_Click"/>
+                <AppBarButton Label="Divide"
+                              Click="mul_button_Click"/>
+                <AppBarSeparator/>
+                <AppBarButton Label="Exit"
+                              Click="exit_button_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Grid
+        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        Padding="10">
+
+        <Grid.ContextFlyout>
+            <MenuFlyout>
+                <MenuFlyoutItem Text="Change color" />
+            </MenuFlyout>
+        </Grid.ContextFlyout>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Margin="0,0,0,20"
+            Orientation="Horizontal">
+            <Button x:Name="add_imagebutton" 
+                    Click="add_button_Click"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" Background="#33FFFFFF">
+                <Image Source="Add.gif"/>
+            </Button>
+            <Button x:Name="sub_imagebutton" 
+                    Click="sub_button_Click"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" Background="#33FFFFFF">
+                <Image Source="Sub.gif"/>
+            </Button>
+            <Button x:Name="mul_imagebutton" 
+                    Click="mul_button_Click"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" Background="#33FFFFFF">
+                <Image Source="Mul.gif"/>
+            </Button>
+            <Button x:Name="div_imagebutton" 
+                    Click="div_button_Click"
+                    HorizontalAlignment="Stretch" 
+                    VerticalAlignment="Stretch" Background="#33FFFFFF">
+                <Image Source="Div.gif"/>
+            </Button>
+        </StackPanel>
+
+        <Button x:Name="exit_imagebutton" 
+                    Click="exit_button_Click"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Top" 
+                    Background="#33FFFFFF" 
+                Grid.Column="1">
+            <StackPanel
+                    Orientation="Horizontal">
+                <Image Source="Exit.gif" VerticalAlignment="Center"/>
+                <TextBlock Text="Exit" VerticalAlignment="Center" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Button>
+
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock
+                    Width="150"
+                    Text="First Operand" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox Name="first_operand_textbox" Width="120"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,25">
+                <TextBlock
+                    Text="Second Operand" VerticalAlignment="Center" Width="150" />
+                <TextBox x:Name="second_operand_textbox" Width="120"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Text="Result" VerticalAlignment="Center" Width="150" />
+                <TextBox Name="result_textbox" Width="120" IsReadOnly="True"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel 
+            
+            Grid.Row="1"
+            Grid.Column="1"
+            Orientation="Vertical" Margin="20,0,0,0">
+            <Button x:Name="add_button" 
+                    Content="Add" 
+                    HorizontalAlignment="Stretch" 
+                    Margin="0,0,0,5" Click="add_button_Click" />
+            <Button x:Name="sub_button" 
+                    Content="Sub" 
+                    HorizontalAlignment="Stretch" 
+                    Margin="0,0,0,5" Click="sub_button_Click" />
+            <Button x:Name="mul_button" 
+                    Content="Mul" 
+                    HorizontalAlignment="Stretch" 
+                    Margin="0,0,0,5" Click="mul_button_Click" />
+            <Button x:Name="div_button" 
+                    Content="Div" 
+                    HorizontalAlignment="Stretch" Click="div_button_Click" />
+
+        </StackPanel>
+    </Grid>
+</Page>
